@@ -2,7 +2,7 @@
 # UnnecessaryBooleanAssertion
 
 *Usage:* 
-`pmd -d <source code folder> -R category/java/errorprone.xml/UnnecessaryBooleanAssertion -format <output format>`
+`pmd check -d <source code folder> -R category/java/errorprone.xml/UnnecessaryBooleanAssertion -format <output format>`
 
 *Description:*
 

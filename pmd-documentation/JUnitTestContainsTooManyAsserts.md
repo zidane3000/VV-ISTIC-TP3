@@ -2,7 +2,7 @@
 # JUnitTestContainsTooManyAsserts
 
 *Usage:* 
-`pmd -d <source code folder> -R category/java/bestpractices.xml/JUnitTestContainsTooManyAsserts -format <output format>`
+`pmd check -d <source code folder> -R category/java/bestpractices.xml/JUnitTestContainsTooManyAsserts -format <output format>`
 
 *Description:*
 

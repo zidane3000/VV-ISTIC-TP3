@@ -1,8 +1,8 @@
 
-# JUnit4TestShouldUseAfterAnnotation
+# UnitTestShouldUseAfterAnnotation
 
 *Usage:* 
-`pmd -d <source code folder> -R category/java/bestpractices.xml/JUnit4TestShouldUseAfterAnnotation -format <output format>`
+`pmd check -d <source code folder> -R category/java/bestpractices.xml/UnitTestShouldUseAfterAnnotation -format <output format>`
 
 *Description:*
 

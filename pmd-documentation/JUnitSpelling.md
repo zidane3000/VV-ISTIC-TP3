@@ -2,7 +2,7 @@
 # JUnitSpelling
 
 *Usage:* 
-`pmd -d <source code folder> -R category/java/errorprone.xml/JUnitSpelling -format <output format>`
+`pmd check -d <source code folder> -R category/java/errorprone.xml/JUnitSpelling -format <output format>`
 
 *Description:*
 
