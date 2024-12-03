@@ -1,8 +1,8 @@
 
-# JUnitTestsShouldIncludeAssert
+# UnitTestShouldIncludeAssert
 
 *Usage:* 
-`pmd check -d <source code folder> -R category/java/bestpractices.xml/JUnitTestsShouldIncludeAssert -format <output format>`
+`pmd check -d <source code folder> -R category/java/bestpractices.xml/UnitTestShouldIncludeAssert -format <output format>`
 
 *Description:*
 
