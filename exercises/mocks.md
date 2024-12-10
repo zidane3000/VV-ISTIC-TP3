@@ -12,4 +12,6 @@ Propose a solution to this problem in your new Mockito-based test cases.
 
 # Answer
 
-La solution consiste à utiliser des mocks pour tester l’interaction et s’assurer que la méthode prepareSocket de la classe TLSSocketFactory est correctement implémentée. Le test doit échouer si la méthode n’est pas correctement implémentée ou si elle n’est pas implémentée du tout.
+La solution consiste à utiliser des mocks pour tester l’interaction et s’assurer
+que la méthode prepareSocket de la classe TLSSocketFactory est correctement implémentée.
+Le test doit échouer si la méthode n’est pas correctement implémentée ou si elle n’est pas implémentée du tout.
