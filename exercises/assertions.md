@@ -24,14 +24,15 @@ Il faut alors vérifier si les nombres sont **"suffisamment proches"** l'un de l
 ```assertTrue(Math.abs(3 * 0.4 - 1.2) < 1e-9) ```, avec **1e-9** est une petite valeur de tolérance. La valeur exacte de la tolérance dépend de la précision requise pour votre application.
 
 ### 2. Differences entre `assertEquals et `assertSame`
+
 #### Différences entre `assertEquals` et `assertSame` en Java
 
 Lors de l'écriture de tests unitaires en Java, il est important de comprendre la différence entre `assertEquals` et `assertSame`. Ce fichier explique leurs différences avec des exemples concrets.
 
-1. **`assertEquals`**
+**`assertEquals`**
    - Compare **les valeurs** des objets.
 
-2. **`assertSame`**
+**`assertSame`**
    - Vérifie si **les deux références pointent vers le même objet** en mémoire.
      
 #### Scenario `assertEquals` = `assertSame`
@@ -69,3 +70,65 @@ class TestAssertEqualsAndSame {
  }
 }
 ```
+### 3. Utilisation de fail
+
+L'assetion de fail peut etre utilisé pour d'autre cas comme : 
+1. Test incomplet ou pas encore :
+```java
+@Test
+public void incompleteTest() {
+    fail("Pas encore implémenté");
+}
+```
+2. Exception inattendue, lorsqu'une exception ne devrait pas être lancée, mais qu'elle l'est malgré tout 
+
+```java
+@Test
+public void unexpectedException() {
+    try {
+        safeMethod();
+        // Code de test supplémentaire
+    } catch (Exception e) {
+        fail("Exception inattendue lancée");
+    }
+}
+```
+
+3. Vérification de condition Vous pouvez appeler fail() lorsqu'un résultat ne respecte pas une condition attendue 
+```java
+@Test
+public void testingCondition() {
+    int result = randomInteger();
+    if(result > Integer.MAX_VALUE) {
+        fail("Le résultat ne peut pas dépasser la valeur maximale d'un entier");
+    }
+    // Code de test supplémentaire
+}
+```
+
+4. Le code retourne rien ou ne se termine pas comme attendu 
+```java
+@Test
+public void returnBefore() {
+    int value = randomInteger();
+    for (int i = 0; i < 5; i++) {
+        // Retourne si (value + i) est un nombre pair
+        if ((i + value) % 2 == 0) {
+            return;
+        }
+    }
+    fail("La méthode aurait dû retourner plus tôt");
+}
+```
+
+### 4. Avantages de `assertThrows`
+
+1. Lisibilité : assertThrows permet de spécifier explicitement l'exception attendue et l'action qui pourrait la déclencher. Il est plus direct et moins ambigu qu'une annotation @Test(expected=...) de JUnit 4.
+
+2. Meilleure gestion des exceptions : capturer et vérifier des exceptions, et cela évite les cas où le test passe silencieusement même si l'exception attendue n'est pas lancée. Examiner d'autres aspects, comme les messages d'erreur, les causes ou les contextes associés à l'exception.
+
+3. Flexibilité : Contrairement à @Test(expected=...), qui spécifie une exception à vérifier sans possibilité de détails supplémentaires, assertThrows permet d'exécuter des actions supplémentaires après l'exception. Cela rend les tests plus robustes et adaptables à différents scénarios.
+
+4. Facilité d'intégration avec JUnit 5 : assertThrows est conçu pour être utilisé dans JUnit 5, ce qui s'intègre bien avec les autres fonctionnalités modernes de JUnit 5.
+
+
