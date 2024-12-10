@@ -12,7 +12,7 @@ Answer the following questions:
 
 ## Answer
 
-1. L'assertion ```java assertTrue(3 * 0.4 == 1.2)``` échoue.
+1. L'assertion ```java assertTrue(3 * 0.4 == 1.2) ``` échoue.
 L'opération 3 * 0.4 est calculée comme 1.2000000000000002 plutôt que exactement 1.2. Cela provient du fait que le nombre 0.4 ne peut pas être exactement représenté en binaire sous la forme d'un nombre flottant. Par conséquent, la comparaison entre le résultat de 3 * 0.4 et 1.2 échoue avec **==**, car cela compare et vérifie l'égalité exacte.
 Comment effectuer cette vérification correctement :
 Il faut alors vérifier si les nombres sont "suffisamment proches" l'un de l'autre, dans une petite tolérance (également appelée epsilon). Cela peut être fait en utilisant une méthode comme ```assertTrue(Math.abs(result - expected) < tolerance)```, où tolerance est une petite valeur qui prend en compte les erreurs d'arrondi possibles.
