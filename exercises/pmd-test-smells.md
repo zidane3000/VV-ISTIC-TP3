@@ -15,3 +15,15 @@ Include the improved test code in this file.
 
 ## Answer
 
+Voici les règles de PMD qui aident à identifier des "test smells":
+
+-**DetachedTestCase** : Détecte les méthodes qui semblent être des cas de test mais qui ne sont pas annotées avec @Test.
+-**UnitTestAssertionsShouldIncludeMessage** : Détecte les assertions sans message explicite, ce qui rend difficile de -diagnostiquer les échecs de test (lié à "Assertion roulette").
+-**UnitTestContainsTooManyAsserts** : Identifie les tests qui contiennent trop d'assertions, ce qui peut rendre le test difficile à comprendre et à maintenir (lié à "Eager test").
+-**UnitTestShouldIncludeAssert** : Vérifie que chaque test inclut au moins une assertion, ce qui peut résoudre le "Free Ride" ou "Piggyback".
+-**UnnecessaryBooleanAssertion** : Détecte les assertions inutiles sur des valeurs booléennes, ce qui peut rendre le test plus fragile ou erratique.
+
+### Tests smell 
+
+
+
