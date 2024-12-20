@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 class BinaryHeapTest {
 @Test
     void testPushAndCount() {
-        BinaryHeap<Integer> heap = new BinaryHeap<>();
+        BinaryHeap<Integer> heap = new BinaryHeap<Integer>(Comparator.naturalOrder());
         heap.push(10);
         heap.push(20);
         heap.push(5);
@@ -19,7 +19,7 @@ class BinaryHeapTest {
 
     @Test
     void testPeek() {
-        BinaryHeap<Integer> heap = new BinaryHeap<>(Comparator.naturalOrder());
+        BinaryHeap<Integer> heap = new BinaryHeap<Integer>(Comparator.naturalOrder());
         heap.push(10);
         heap.push(20);
         heap.push(5);
@@ -29,7 +29,7 @@ class BinaryHeapTest {
 
     @Test
     void testPop() {
-        BinaryHeap<Integer> heap = new BinaryHeap<>(Comparator.naturalOrder());
+        BinaryHeap<Integer> heap = new BinaryHeap<Integer>(Comparator.naturalOrder());
         heap.push(10);
         heap.push(20);
         heap.push(5);
@@ -43,13 +43,13 @@ class BinaryHeapTest {
 
     @Test
     void testPopEmptyHeap() {
-        BinaryHeap<Integer> heap = new BinaryHeap<>(Comparator.naturalOrder());
+        BinaryHeap<Integer> heap = new BinaryHeap<Integer>(Comparator.naturalOrder());
         assertThrows(NoSuchElementException.class, heap::pop);
     }
 
     @Test
     void testPeekEmptyHeap() {
-        BinaryHeap<Integer> heap = new BinaryHeap<>(Comparator.naturalOrder());
+        BinaryHeap<Integer> heap = new BinaryHeap<Integer>(Comparator.naturalOrder());
         assertThrows(NoSuchElementException.class, heap::peek);
     }
 
