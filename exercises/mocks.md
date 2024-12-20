@@ -6,12 +6,12 @@ The test class `TLSSocketFactoryTest` tests `TLSSocketFactory` and manually buil
 
 Rewrite these tests with the help of Mockito.
 
-The initial tests fail to completely test the `TLSSockeetFactory`. In fact, if we *entirely* remove the code inside the body of `prepareSocket` no test case fails.
+The initial tests fail to completely test the `TLSSocketFactory`. In fact, if we *entirely* remove the code inside the body of `prepareSocket` no test case fails.
 
 Propose a solution to this problem in your new Mockito-based test cases.
 
 # Answer
 
-La solution consiste à utiliser des mocks pour tester l’interaction et s’assurer
-que la méthode prepareSocket de la classe TLSSocketFactory est correctement implémentée.
+La solution consiste à utiliser Mockito pour créer des mocks de `SSLSocket` et vérifier que les méthodes sont appelées avec les bons arguments, aussi tester l’interaction et s’assurer
+que la méthode `prepareSocket` de la classe `TLSSocketFactory` est correctement implémentée.
 Le test doit échouer si la méthode n’est pas correctement implémentée ou si elle n’est pas implémentée du tout.

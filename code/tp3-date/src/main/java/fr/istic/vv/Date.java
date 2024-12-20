@@ -43,14 +43,52 @@ class Date implements Comparable<Date> {
         return true;
      }
 
-    public Date nextDate() { 
-        return new Date(this.day + 1, this.month, this.year);
-     }
-
-    public Date previousDate() { 
-        return new Date(this.day - 1, this.month, this.year);
-     }
-
+     public Date nextDate() {
+        int newDay = this.day + 1;
+        int newMonth = this.month;
+        int newYear = this.year;
+    
+        if (newDay > daysInMonth(this.month, this.year)) {
+            newDay = 1;
+            newMonth++;
+            if (newMonth > 12) {
+            newMonth = 1;
+            newYear++;
+            }
+        }
+    
+        return new Date(newDay, newMonth, newYear);
+    }
+    
+    public Date previousDate() {
+        int newDay = this.day - 1;
+        int newMonth = this.month;
+        int newYear = this.year;
+    
+        if (newDay < 1) {
+            newMonth--;
+            if (newMonth < 1) {
+                newMonth = 12;
+                newYear--;
+            }
+            newDay = daysInMonth(newMonth, newYear);
+        }
+    
+        return new Date(newDay, newMonth, newYear);
+    }
+    
+    private int daysInMonth(int month, int year) {
+        switch (month) {
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                return 31;
+            case 4: case 6: case 9: case 11:
+                return 30;
+            case 2:
+                return isLeapYear(year) ? 29 : 28;
+            default:
+                throw new IllegalArgumentException("Invalid month: " + month);
+        }
+    }
     public int compareTo(Date other) { 
         if (this.year < other.year) {
             return -1;
