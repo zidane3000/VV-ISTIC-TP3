@@ -17,15 +17,15 @@ Include the improved test code in this file.
 
 Règles PMD pour identifier les test smells :
 - **DetachedTestCase** : Détecte les méthodes qui semblent être des tests mais ne sont pas annotées avec @Test. Cela peut entraîner une confusion sur les méthodes de test valides.
-- **UnitTestAssertionsShouldIncludeMessage** : Détecte les assertions sans message explicite. Cela rend plus difficile le diagnostic des erreurs de test, augmentant le risque de "assertion roulette".
+- **UnitTestAssertionsShouldIncludeMessage** : Détecte les assertions sans message explicite. Cela rend plus difficile le diagnostic des erreurs de test.
 - **UnitTestContainsTooManyAsserts** : Identifie les tests avec trop d'assertions, ce qui nuit à leur lisibilité et leur maintenance. Ce smell est souvent lié à des tests trop complexes et difficiles à déboguer.
-- **UnitTestShouldIncludeAssert** : Assure qu'au moins une assertion est présente dans chaque test. Cela résout des problèmes comme le Free Ride ou Piggyback, où les tests peuvent ne rien vérifier.
+- **UnitTestShouldIncludeAssert** : Assure qu'au moins une assertion est présente dans chaque test. Cela résout des problèmes comme le Piggyback, où les tests peuvent ne rien vérifier.
 - **UnnecessaryBooleanAssertion** : Détecte les assertions inutiles sur des valeurs booléennes. Cela rend le test plus fragile, car des changements dans le code peuvent entraîner des échecs de test non pertinents.
 
 ### Exemple de Test Smells : 
 
 #### Apache Commons Collections
-Dans le [fichier html ](../code/tp3-test-smell/detect_test_smell_commons-collections) nous avons : 
+Dans le [fichier html ](../code/tp3-test-smell/detect_test_smell_commons-collections.html) nous avons : 
 `commons-collections\src\test\java\org\apache\commons\collections4\ArrayStackTest.java 87 Unit tests should not contain more than 1 assert(s).`
 
 ***Code d'origine :***
@@ -72,7 +72,7 @@ public void testSearchMissingItem() {
 }
 ```
 #### Apache Commons CLI
-Dans le [fichier html ](../code/tp3-test-smell/detect_test_smell_commons-cli) nous avons : 
+Dans le [fichier html ](../code/tp3-test-smell/detect_test_smell_commons-cli.html) nous avons : 
 `commons-cli\src\test\java\org\apache\commons\cli\AbstractParserTestCase.java 153 Unit tests should not contain more than 1 assert(s).`
 
 ***Code d'origine :***
@@ -123,7 +123,7 @@ public void testExtraArgsSize() throws Exception {
 ````
 
 #### Apache Commons Math
-Dans le [fichier html ](../code/tp3-test-smell/detect_test_smell_commons-math) nous avons : 
+Dans le [fichier html ](../code/tp3-test-smell/detect_test_smell_commons-math.html) nous avons : 
 `commons-math\commons-math-legacy-core\src\test\java\org\apache\commons\math4\legacy\core\MathArraysTest.java 48 Unit tests should not contain more than 1 assert(s).`
 
 ***Code d'origine :***
@@ -177,7 +177,7 @@ public void testScaledValues() {
 }
 ``` 
 #### Apache Commons Lang
-Dans le [fichier html ](../code/tp3-test-smell/detect_test_smell_commons-lang) nous avons : 
+Dans le [fichier html ](../code/tp3-test-smell/detect_test_smell_commons-lang.html) nous avons : 
 `commons-lang\src\test\java\org\apache\commons\lang3\AnnotationUtilsTest.java 408 Unit tests should not contain more than 1 assert(s).`
 
 ***Code d'origine :***
